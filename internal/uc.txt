@@ -1,0 +1,18 @@
+signup
+
+signin
+
+write article
+
+add folowing
+
+write comment
+
+mark 'like'
+
+notification
+	when a person followed me
+	when an folowing person wrote article,
+	when a person liked my article
+	when a person wrote a comment to my article
+	when a person wrote a comment to my comment
