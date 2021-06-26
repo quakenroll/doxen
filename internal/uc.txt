@@ -1,3 +1,19 @@
+oth flow
+
+	user request home data
+		if not logged in
+			send the redirection url to client
+		
+
+
+		redirect to google login
+
+
+
+
+
+
+
 signup
 
 signin

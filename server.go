@@ -10,7 +10,6 @@ import (
 
 	"github.com/quakenroll/doxen/graph"
 	doxen "github.com/quakenroll/doxen/graph/generated"
-	"github.com/quakenroll/doxen/internal/auth"
 	database "github.com/quakenroll/doxen/internal/pkg/db/mysql"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -89,7 +88,7 @@ func main() {
 	}
 
 	router := chi.NewRouter()
-	router.Use(auth.Middleware()) // this sets the handler that should be processed before any normal handler's routines
+	//router.Use(auth.Middleware()) // this sets the handler that should be processed before any normal handler's routines
 
 	database.InitDB()
 	database.Migrate()
@@ -101,6 +100,8 @@ func main() {
 	router.Handle("/query", server)
 
 	log.Printf("connect to https://localhost:%s/ for GraphQL playground", port)
-	log.Fatal(http.ListenAndServeTLS(":"+port, "localhost.crt", "localhost.key", router))
+	log.Fatal(http.ListenAndServeTLS(":"+port,
+		"../certification/localhost.crt",
+		"../certification/localhost.key", router))
 
 }
