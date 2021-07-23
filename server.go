@@ -10,7 +10,7 @@ import (
 
 	"github.com/quakenroll/doxen/graph"
 	doxen "github.com/quakenroll/doxen/graph/generated"
-	doxenauth "github.com/quakenroll/doxen/internal/firebase/auth"
+	"github.com/quakenroll/doxen/internal/firebase/authdoxen"
 	database "github.com/quakenroll/doxen/internal/pkg/db/mysql"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -84,7 +84,7 @@ func getGoogleUserInfo(code string) ([]byte, error) {
 func main() {
 
 	//generatepem.GenFile()
-	doxenauth.VerifyIDToken()
+	authdoxen.VerifyIDToken()
 
 	port := os.Getenv("PORT")
 	if port == "" {

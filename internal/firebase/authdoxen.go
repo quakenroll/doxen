@@ -1,4 +1,4 @@
-package doxenauth
+package authdoxen
 
 import (
 	"context"
