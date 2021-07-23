@@ -10,6 +10,7 @@ import (
 
 	"github.com/quakenroll/doxen/graph"
 	doxen "github.com/quakenroll/doxen/graph/generated"
+	doxenauth "github.com/quakenroll/doxen/internal/firebase/auth"
 	database "github.com/quakenroll/doxen/internal/pkg/db/mysql"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
@@ -34,7 +35,9 @@ type googleLoginHandler struct {
 
 func (d googleLoginHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	url := googleOauthConfig.AuthCodeURL("MyAuthVerificationString")
-	http.Redirect(w, r, url, http.StatusTemporaryRedirect)
+	fmt.Fprint(w, string(url))
+	//log.Println(url)
+	//http.Redirect(w, r, url, http.StatusTemporaryRedirect)
 }
 
 type googleAuthCallbackHandler struct {
@@ -81,6 +84,7 @@ func getGoogleUserInfo(code string) ([]byte, error) {
 func main() {
 
 	//generatepem.GenFile()
+	doxenauth.VerifyIDToken()
 
 	port := os.Getenv("PORT")
 	if port == "" {

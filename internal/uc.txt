@@ -1,8 +1,24 @@
 oth flow
 
+
+
 	user request home data
 		if not logged in
 			send the redirection url to client
+				----------client-----------
+					do login
+
+
+					
+
+		else // logged in
+			if initially logged in
+						request to register user info
+			logged in as an existing user
+						request the home data
+					
+
+					
 		
 
 
